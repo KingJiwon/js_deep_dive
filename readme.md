@@ -9,11 +9,13 @@
     <td>박지원</td>
     <td>김은정</td>
     <td>송수빈</td>
+    <td>양재연</td>  
    </tr>
    <tr align="center">
       <td><a href= 'https://github.com/KingJiwon'>KingJiwon</a></td>
       <td><a href= 'https://github.com/0uizi0'>0uizi0</a></td>
       <td><a href='https://github.com/ssb1565b'>ssb1565b</a></td>
+      <td><a href='https://github.com/JUMTBOX'>JUMTBOX</a></td>
    </tr>
 </table>
 
