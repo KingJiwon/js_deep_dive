@@ -347,4 +347,24 @@ Array.from({ length: 3 }, (_, i) => i); // [0,1,2]
 
 # 이야기 하고 싶은 것
 
-- Immutable method (ex. Array.prototype.toSorted) 찾아보기
+- Newly added Array Immutable method (ex. Array.prototype.toSorted) 찾아보기
+
+```jsx
+const arr = ["f", "c", "k", "a", "f", "d"];
+
+/**
+ * 첫 번째 인수는 값을 변경할 인덱스,
+ * 두 번째 인수로 전달된 값으로 변경된다.
+ */
+const newArr = arr.with(2, "m");
+// newArr -> ['f', 'c', 'm', 'a', 'f', 'd']
+const sortArr = arr.toSorted();
+// sortArr -> ['a', 'c', 'd', 'f', 'f', 'k']
+const reverseArr = arr.toReversed();
+// reverseArr -> ['d', 'f', 'a', 'k', 'c', 'f']
+const splicedArr = arr.toSpliced(3, 3, "it");
+// splicedArr -> ['f', 'c', 'k', 'it']
+```
+
+- Array 인스턴스의 with() 메서드는 주어진 인덱스의 값을 변경하기 위해 대괄호 표기법을 사용하는 것의 복사 버전입니다. 이 함수는 지정된 인덱스의 요소가 지정된 값으로 대체된 새 배열을 반환합니다
+  [ MDN에서 발췌...]
