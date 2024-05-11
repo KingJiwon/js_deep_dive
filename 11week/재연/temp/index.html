@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>template 태그 예제</title>
+    <script defer src="./temp.js"></script>
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #app_main {
+      width: 60vw;
+      height: 90%;
+      box-shadow: 0 3px 6px 0 gray;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: max-content;
+      background-color: #d1b6eb;
+      box-shadow: 0 1px 3px 0 gray;
+    }
+  </style>
+  <body>
+    <section id="app_main">
+      <div>NOTHING</div>
+    </section>
+    <section id="0xT1"></section>
+  </body>
+
+  <template id="some_template">
+    <div class="component" id="fromHere">
+      <img src="" alt="" />
+      <span>default text</span>
+    </div>
+  </template>
+</html>
