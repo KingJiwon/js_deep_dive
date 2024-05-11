@@ -50,7 +50,6 @@ function case3() {
     .then((htmlText) => {
       const domParser = new DOMParser();
       const result = domParser.parseFromString(htmlText, "text/html");
-      /** result는 html태그부터 시작함 */
       const tempTag = result.querySelector("#some_template_apart");
 
       MOCK_DATA.forEach((item) => {
@@ -72,10 +71,27 @@ function case3() {
 
 // case3();
 
-// 번외
+// 번외 1
 // 숫자로 시작하는 css 선택자를 querySelector로 선택하는 방법
 
 // 만약 id가 0xT1 인 경우
 
 const t1EventSection = document.querySelector("#" + CSS.escape(0) + "xT1");
 console.log(t1EventSection);
+
+// 번외 2
+// DOMParser.prototype.parseFromString의 반대로는 XMLSerializer.prototype.serializeToString메서드가 존재
+
+//Element: insertAdjacentHTML() 메서드
+//Element 인터페이스의 insertAdjacentHTML(position, htmlText) 메서드는 지정된 텍스트를 HTML 혹은 XML로 파싱하고 결과 노드들을 지정된 위치의 DOM 트리에 삽입합니다.
+
+// 기준이 되는 Element를 querySelector로 선택한 상태에서 메서드 체이닝으로 호출
+
+// 인수1 - position (htmlText 파싱되어 들어가길 바라는 위치)
+/**  
+ 1. "beforebegin" - 요소 이전에 위치합니다. 오직 요소가 DOM 트리에 있고 부모 요소를 가지고 있을 때만 유효합니다
+ 2. "afterbegin" - 요소 바로 안에서 처음 자식 이전에 위치합니다.
+ 3. "beforeend" - 요소 바로 안에서 마지막 자식 이후에 위치합니다.
+ 4. "afterend" - 요소 이후에 위치합니다. 오직 요소가 DOM 트리에 있고 부모 요소를 가지고 있을 때만 유효합니다.
+*/
+// 인수2 - htmlText (text형식으로 날라온 html 양식)
