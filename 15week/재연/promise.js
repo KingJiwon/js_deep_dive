@@ -1,21 +1,3 @@
-const url = "https://jsonplaceholder.typicode.com";
-
-function promisetest() {
-  return new Promise((resolve, reject) => {
-    const data = fetch(url + "/posts");
-
-    if (data) {
-      resolve(data);
-    } else {
-      reject(data);
-    }
-  });
-}
-
-// promisetest()
-//   .then((resolve) => resolve.json())
-//   .then((d) => console.log(d));
-
 const p = new Promise((res, rej) => {
   setTimeout(() => {
     res("promise 1");
@@ -56,9 +38,6 @@ const ddd = new Promise((res, rej) => {
   }, 1000);
 });
 
-proTest();
-console.log(":::   ", proTest());
-
 /** 모든 Promise가 resolve 됐을때 Promise 객체 반환... */
 Promise.allSettled([proTest(), ddd]).then((result) =>
   console.log("all settled   >>>> ", result)
@@ -67,3 +46,15 @@ Promise.allSettled([proTest(), ddd]).then((result) =>
 Promise.race([proTest(), ddd]).then((result) =>
   console.log("race  >>> ", result)
 );
+
+const url = "https://jsonplaceholder.typicode.com";
+
+async function promisetest() {
+  const response = await fetch(url + "/posts");
+
+  const [data, ...rest] = await response.json();
+
+  return data;
+}
+
+Promise.resolve(promisetest()).then((response) => console.log(response));
